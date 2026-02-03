@@ -2,136 +2,117 @@
 import { siteConfig } from "../config";
 ---
 
-<div
+<section
   id="hero"
-  class="relative isolate overflow-hidden bg-white py-24 md:h-screen"
+  class="min-h-screen bg-white flex items-center"
   style={`--accent-color: ${siteConfig.accentColor}`}
 >
-  <!-- Gradient overlay -->
-  <div
-    class="absolute inset-0 -z-10"
-    style={`background: radial-gradient(ellipse 800px 1200px at 0% 0%, ${siteConfig.accentColor}40 0%, ${siteConfig.accentColor}25 20%, ${siteConfig.accentColor}10 40%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.8) 90%, white 100%)`}
-  >
-  </div>
-  <svg
-    aria-hidden="true"
-    class="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-  >
-    <defs>
-      <pattern
-        x="50%"
-        y={-1}
-        id="grid-pattern"
-        width={200}
-        height={200}
-        patternUnits="userSpaceOnUse"
-      >
-        <path d="M.5 200V.5H200" fill="none"></path>
-      </pattern>
-      <pattern
-        id="design-symbols"
-        x="0"
-        y="0"
-        width="400"
-        height="400"
-        patternUnits="userSpaceOnUse"
-      >
-        <!-- Design-related symbols -->
-        <circle cx="50" cy="50" r="15" fill="none" stroke={siteConfig.accentColor} stroke-width="1" opacity="0.3" />
-        <rect x="140" y="90" width="30" height="30" fill="none" stroke={siteConfig.accentColor} stroke-width="1" opacity="0.3" transform="rotate(15)" />
-        <polygon points="280,60 295,90 265,90" fill="none" stroke={siteConfig.accentColor} stroke-width="1" opacity="0.3" />
-        <circle cx="100" cy="200" r="20" fill="none" stroke={siteConfig.accentColor} stroke-width="1" opacity="0.3" />
-        <rect x="290" y="170" width="25" height="25" rx="5" fill="none" stroke={siteConfig.accentColor} stroke-width="1" opacity="0.3" />
-        <line x1="180" y1="240" x2="220" y2="240" stroke={siteConfig.accentColor} stroke-width="2" opacity="0.3" />
-        <line x1="200" y1="220" x2="200" y2="260" stroke={siteConfig.accentColor} stroke-width="2" opacity="0.3" />
-        <circle cx="50" cy="320" r="12" fill="none" stroke={siteConfig.accentColor} stroke-width="1" opacity="0.3" />
-        <rect x="330" y="290" width="40" height="25" rx="3" fill="none" stroke={siteConfig.accentColor} stroke-width="1" opacity="0.3" />
-        <circle cx="160" cy="360" r="8" fill={siteConfig.accentColor} opacity="0.15" />
-      </pattern>
-    </defs>
-    <rect
-      fill="url(#design-symbols)"
-      width="100%"
-      height="100%"
-      opacity="0.5"></rect>
-    <rect
-      fill="url(#grid-pattern)"
-      width="100%"
-      height="100%"
-      stroke-width={0}></rect>
-  </svg>
-  
-  <div class="h-full mx-auto p-8 sm:p-12 md:p-24 flex items-center">
-    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-16">
-      
-      <!-- Initials as visual element -->
-      <div class="flex-shrink-0">
-        <div 
-          class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl flex items-center justify-center text-white font-bold text-5xl sm:text-6xl md:text-7xl shadow-2xl animate-fade-in"
-          style={`background: linear-gradient(135deg, ${siteConfig.accentColor} 0%, ${siteConfig.accentColor}cc 100%)`}
+  <div class="w-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
+    <div class="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-16">
+
+      <!-- Photo with accent border -->
+      <div class="flex-shrink-0 animate-fade-in">
+        <div
+          class="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64"
         >
-          MF
+          <!-- Accent border ring -->
+          <div
+            class="absolute inset-0 rounded-2xl rotate-3 opacity-60"
+            style={`background: linear-gradient(135deg, ${siteConfig.accentColor} 0%, ${siteConfig.accentColor}80 100%)`}
+          ></div>
+          <!-- Photo container -->
+          <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-xl border-4 border-white">
+            <img
+              src={`${import.meta.env.BASE_URL}/profile.png`}
+              alt={siteConfig.name}
+              class="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </div>
 
-      <div>
-        <h2
-          class="text-pretty text-xl sm:text-2xl md:text-4xl font-bold tracking-tight text-gray-700 animate-fade-in"
-        >
-          ¡Hola! 👋
-        </h2>
-        <h1
-          class="mt-4 sm:mt-6 md:mt-8 text-pretty text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-gray-800 animate-fade-in animation-delay-200"
-        >
-          Soy <span style={{ color: siteConfig.accentColor }}>{siteConfig.name}</span>
+      <!-- Content -->
+      <div class="text-center lg:text-left">
+        <p class="text-gray-500 text-lg mb-2 animate-fade-in">Hola, soy</p>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 animate-fade-in animation-delay-100">
+          {siteConfig.name.split(' ').slice(0, 2).join(' ')}
+          <span class="block" style={`color: ${siteConfig.accentColor}`}>
+            {siteConfig.name.split(' ').slice(2).join(' ')}
+          </span>
         </h1>
-        <p
-          class="mt-4 sm:mt-6 text-pretty text-base sm:text-lg md:text-xl/8 font-medium text-gray-600 animate-fade-in animation-delay-400"
-        >
-          {siteConfig.title}
-        </p>
-        <p
-          class="mt-4 max-w-2xl text-pretty text-sm sm:text-base text-gray-500 animate-fade-in animation-delay-400"
-        >
+
+        <div class="flex items-center justify-center lg:justify-start gap-3 mb-6 animate-fade-in animation-delay-200">
+          <span
+            class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white"
+            style={`background: ${siteConfig.accentColor}`}
+          >
+            {siteConfig.title}
+          </span>
+          <span class="text-gray-400">@</span>
+          <span class="text-gray-600 font-medium">Empathy</span>
+        </div>
+
+        <p class="text-gray-600 text-lg max-w-xl mb-8 animate-fade-in animation-delay-300">
           {siteConfig.aboutMe}
         </p>
+
+        <!-- Social links -->
+        <div class="flex items-center justify-center lg:justify-start gap-4 animate-fade-in animation-delay-400">
+          {siteConfig.social?.email && (
+            <a
+              href={`mailto:${siteConfig.social.email}`}
+              class="flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-gray-200 text-gray-600 hover:border-[var(--accent-color)] hover:text-[var(--accent-color)] transition-all duration-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span class="font-medium">Email</span>
+            </a>
+          )}
+          {siteConfig.social?.linkedin && (
+            <a
+              href={siteConfig.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 px-5 py-2.5 rounded-full text-white transition-all duration-300 hover:opacity-90 hover:scale-105"
+              style={`background: ${siteConfig.accentColor}`}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span class="font-medium">LinkedIn</span>
+            </a>
+          )}
+          {siteConfig.social?.portfolio && (
+            <a
+              href={siteConfig.social.portfolio}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 px-5 py-2.5 rounded-full border-2 text-gray-600 transition-all duration-300 hover:border-[var(--accent-color)] hover:text-[var(--accent-color)]"
+              style={`border-color: ${siteConfig.accentColor}40`}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span class="font-medium">Portfolio</span>
+            </a>
+          )}
+        </div>
       </div>
     </div>
+
+    <!-- Scroll indicator -->
+    <div class="hidden lg:flex justify-center mt-16 animate-fade-in animation-delay-500">
+      <a href="#projects" class="flex flex-col items-center text-gray-400 hover:text-[var(--accent-color)] transition-colors">
+        <span class="text-sm mb-2">Ver proyectos</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
+    </div>
   </div>
-  
-  <div
-    class="absolute bottom-0 left-0 right-0 p-8 sm:p-12 md:p-24 flex gap-x-4 sm:gap-x-6 md:gap-x-8 text-gray-700 animate-fade-in animation-delay-600"
-  >
-    {
-      siteConfig.social?.email && (
-        <a
-          href={`mailto:${siteConfig.social.email}`}
-          aria-label="Email"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-        </a>
-      )
-    }
-    {
-      siteConfig.social?.linkedin && (
-        <a
-          href={siteConfig.social.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          class="transition-colors duration-300 hover:text-[var(--accent-color)]"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-          </svg>
-        </a>
-      )
-    }
-  </div>
-</div>
+</section>
 
 <style>
   @keyframes fadeIn {
@@ -146,19 +127,13 @@ import { siteConfig } from "../config";
   }
 
   .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 0.6s ease-out forwards;
     opacity: 0;
   }
 
-  .animation-delay-200 {
-    animation-delay: 0.2s;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 0.4s;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 0.6s;
-  }
+  .animation-delay-100 { animation-delay: 0.1s; }
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-300 { animation-delay: 0.3s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
+  .animation-delay-500 { animation-delay: 0.5s; }
 </style>
