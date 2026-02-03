@@ -5,9 +5,10 @@ export const siteConfig = {
   accentColor: "#534BEC",
   social: {
     email: "maferbc96@gmail.com",
-    linkedin: "https://linkedin.com/in/maferburmester",
+    linkedin: "https://linkedin.com/in/maria-fernanda-burmester-catter-b33278125",
     twitter: "",
     github: "",
+    portfolio: "https://maferburcar.myportfolio.com/",
   },
   aboutMe:
     "Bachiller en Diseño Gráfico con especialización en UX/UI y enfoque en proyectos de innovación digital orientados a mejorar la experiencia de usuario. Actualmente trabajo como Visual Designer en Empathy, creando UI Kits, prototipos y presentaciones de alto impacto.",
@@ -29,36 +30,41 @@ export const siteConfig = {
       name: "Cuida Delivery",
       description:
         "Diseño de experiencia para aplicación de delivery de productos farmacéuticos.",
-      link: "https://maferburcar.myportfolio.com/cuida-delivery",
+      link: "/proyectos/cuida-delivery",
       skills: ["UX", "UI", "Mobile App"],
+      internal: true,
     },
     {
       name: "Design System Cuidafarma",
       description:
         "Definición del styleguide y desarrollo del Design System, estandarizando lineamientos visuales en e-commerce y aplicativo.",
-      link: "https://maferburcar.myportfolio.com/design-system-primeros-pasos",
+      link: "/proyectos/design-system",
       skills: ["Design Systems", "UI Kit", "Components"],
+      internal: true,
     },
     {
       name: "App Pacientes",
       description:
         "Diseño de aplicación móvil para gestión de pacientes en el sector salud.",
-      link: "https://maferburcar.myportfolio.com/app-pacientes",
+      link: "/proyectos/app-pacientes",
       skills: ["UX", "UI", "Healthcare"],
+      internal: true,
     },
     {
       name: "Cuidafarma E-commerce",
       description:
         "Diseño de plataforma e-commerce para farmacia, incluyendo A/B testing y pruebas de usabilidad.",
-      link: "https://maferburcar.myportfolio.com/cuidafarma-e-commerce-10",
+      link: "/proyectos/ecommerce",
       skills: ["E-commerce", "UX", "UI"],
+      internal: true,
     },
     {
       name: "Caso de estudio: Paw",
       description:
         "Proyecto de diseño UX/UI para aplicación de mascotas.",
-      link: "https://maferburcar.myportfolio.com/caso-de-estudio-paw",
+      link: "/proyectos/paw",
       skills: ["Case Study", "UX Research", "UI"],
+      internal: true,
     },
   ],
   experience: [

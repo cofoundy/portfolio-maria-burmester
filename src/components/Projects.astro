@@ -1,102 +1,110 @@
 ---
 import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
+
+// Map project names to images and gradients (María's style)
+const projectData: Record<string, { image: string; gradient: string }> = {
+  "App Pacientes": {
+    image: "app-pacientes.webp",
+    gradient: "linear-gradient(135deg, #C4B5FD 0%, #E8E4F0 100%)", // violet/lavender
+  },
+  "Design System Cuidafarma": {
+    image: "design-system.webp",
+    gradient: "linear-gradient(135deg, #E8E4F0 0%, #F5F3FF 100%)", // light lavender
+  },
+  "Cuidafarma E-commerce": {
+    image: "ecommerce.webp",
+    gradient: "linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%)", // violet
+  },
+  "Cuida Delivery": {
+    image: "cuida-delivery.webp",
+    gradient: "linear-gradient(135deg, #818CF8 0%, #C7D2FE 100%)", // indigo/light
+  },
+  "Caso de estudio: Paw": {
+    image: "paw.webp",
+    gradient: "linear-gradient(135deg, #FDA4AF 0%, #FECDD3 100%)", // rose/pink
+  },
+};
 ---
 
 {
   hasProjects && (
-    <section id="projects" class="p-8 sm:p-12 md:p-16 lg:p-24">
-      <div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          <div class="lg:col-span-4">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900">
-              Proyectos
-            </h2>
-            <div
-              class="w-[75px] h-[5px] mt-2 rounded-full"
-              style={`background-color: ${siteConfig.accentColor}`}
-            />
-          </div>
+    <section id="projects" class="py-20 bg-white" style={`--accent-color: ${siteConfig.accentColor}`}>
+      <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <!-- Section header -->
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Proyectos destacados
+          </h2>
+          <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+            Una selección de proyectos donde he diseñado experiencias digitales centradas en el usuario.
+          </p>
+        </div>
 
-          <div class="lg:col-span-8">
-            <div class="space-y-8">
-              {siteConfig.projects.map((project, index) => {
-                const Component = project.link ? "a" : "div";
-                const linkProps = project.link
-                  ? {
-                      href: project.link,
-                      target: "_blank",
-                      rel: "noopener noreferrer",
-                    }
-                  : {};
+        <!-- Projects grid -->
+        <div class="grid gap-8">
+          {siteConfig.projects.map((project, index) => {
+            const data = projectData[project.name];
+            const isEven = index % 2 === 0;
 
-                return (
-                  <div class="group relative">
-                    <Component
-                      {...linkProps}
-                      class={`block relative p-4 sm:p-6 md:p-8 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200 transition-all duration-300 ${
-                        project.link
-                          ? "hover:bg-white hover:shadow-xl hover:border-gray-300 hover:-translate-y-1"
-                          : ""
-                      }`}
-                    >
-                      {project.link && (
-                        <div class="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center bg-gray-900 rounded-full text-white transition-all duration-300 group-hover:bg-gray-700">
-                          <svg
-                            class="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M7 17L17 7M17 7H7M17 7V17"
-                            />
-                          </svg>
-                        </div>
-                      )}
+            return (
+              <div
+                class="group relative overflow-hidden rounded-3xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
+                style={`background: ${data?.gradient || 'linear-gradient(135deg, #E8E4F0 0%, #F5F3FF 100%)'}`}
+              >
+                <div class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-8 p-8 lg:p-12`}>
 
-                      <div class="space-y-4">
-                        <div>
-                          <span
-                            class="text-sm font-mono"
-                            style={{ color: siteConfig.accentColor }}
-                          >
-                            0{index + 1}
-                          </span>
-                          <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mt-1">
-                            {project.name}
-                          </h3>
-                        </div>
+                  <!-- Text content -->
+                  <div class={`flex-1 ${isEven ? 'lg:pr-8' : 'lg:pl-8'}`}>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      {project.skills?.map((skill) => (
+                        <span class="px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 border border-white/50">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
 
-                        <p
-                          class={`text-base sm:text-lg text-gray-600 leading-relaxed ${project.link ? "pr-12 sm:pr-14 md:pr-16" : ""}`}
-                        >
-                          {project.description}
-                        </p>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
+                      {project.name}
+                    </h3>
 
-                        {project.skills && project.skills.length > 0 && (
-                          <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-2">
-                            {project.skills.map((skill) => (
-                              <span
-                                class={`px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${
-                                  project.link ? "group-hover:bg-gray-800" : ""
-                                }`}
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </Component>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                      {project.description}
+                    </p>
+
+                    {project.link && (
+                      <a
+                        href={project.internal ? `${import.meta.env.BASE_URL}${project.link}` : project.link}
+                        target={project.internal ? undefined : "_blank"}
+                        rel={project.internal ? undefined : "noopener noreferrer"}
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white rounded-full font-medium transition-all duration-300 hover:bg-gray-800 hover:gap-3"
+                      >
+                        Ver caso de estudio
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </a>
+                    )}
                   </div>
-                );
-              })}
-            </div>
-          </div>
+
+                  <!-- Image mockup -->
+                  <div class="flex-1 relative">
+                    {data?.image && (
+                      <div class="relative">
+                        <img
+                          src={`${import.meta.env.BASE_URL}/projects/${data.image}`}
+                          alt={project.name}
+                          class="w-full rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
