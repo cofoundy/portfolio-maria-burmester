@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "María Fernanda Burmester",
-  title: "UX/UI Designer",
-  description: "Portfolio de María Fernanda Burmester - UX/UI Designer especializada en Design Systems y experiencia de usuario",
+  title: "Visual Designer",
+  description: "Portfolio de María Fernanda Burmester - Visual Designer especializada en Design Systems y experiencia de usuario",
   accentColor: "#534BEC",
   social: {
     email: "maferbc96@gmail.com",
@@ -11,7 +11,7 @@ export const siteConfig = {
     portfolio: "https://maferburcar.myportfolio.com/",
   },
   aboutMe:
-    "Bachiller en Diseño Gráfico con especialización en UX/UI y enfoque en proyectos de innovación digital orientados a mejorar la experiencia de usuario. Actualmente trabajo como Visual Designer en Empathy, creando UI Kits, prototipos y presentaciones de alto impacto.",
+    "Bachiller en Diseño Gráfico con especialización en UX/UI y enfoque en proyectos de producto digital orientados a mejorar la experiencia del usuario.",
   skills: [
     "UX Design",
     "UI Design", 
@@ -84,15 +84,15 @@ export const siteConfig = {
       title: "UI Designer",
       dateRange: "Feb. 2023 - Mayo 2025",
       bullets: [
-        "Desarrollo del Design System basado en Material Design y Carbon",
+        "Construcción del Design System basado en Material Design y Carbon",
         "Diseño de componentes para coherencia y escalabilidad",
         "Ejecución de A/B testing y pruebas de usabilidad",
         "Implementación de mejoras basadas en investigación de usuarios",
       ],
     },
     {
-      company: "Agora (Grupo EFE)",
-      title: "Diseñadora UX/UI",
+      company: "Agora (Grupo Intercorp)",
+      title: "Web Designer",
       dateRange: "Ago. 2021 - Feb. 2023",
       bullets: [
         "Diseño de landings e interfaces para campañas de marketing",

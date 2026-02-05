@@ -16,22 +16,13 @@ import { siteConfig } from "../config";
 
     <!-- Skills grid with María's tag style -->
     <div class="flex flex-wrap justify-center gap-3">
-      {siteConfig.skills.map((skill, index) => {
-        // Alternate between filled and outlined style
-        const isFilled = index < 4;
-        return (
+      {siteConfig.skills.map((skill) => (
           <span
-            class={`px-5 py-2.5 rounded-full text-base font-medium transition-all duration-300 hover:scale-105 ${
-              isFilled
-                ? 'text-white'
-                : 'bg-white text-gray-700 border border-gray-200 hover:border-[var(--accent-color)] hover:text-[var(--accent-color)]'
-            }`}
-            style={isFilled ? `background: ${siteConfig.accentColor}` : undefined}
+            class="px-5 py-2.5 rounded-full text-base font-medium transition-all duration-300 hover:scale-105 bg-white text-gray-700 border border-gray-200 hover:border-[var(--accent-color)] hover:text-[var(--accent-color)]"
           >
             {skill}
           </span>
-        );
-      })}
+      ))}
     </div>
   </div>
 </section>

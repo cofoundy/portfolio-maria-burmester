@@ -3,10 +3,11 @@ import { siteConfig } from "../config";
 const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
 
 // Map project names to images and gradients (María's style)
+// All backgrounds using unified light lavender gradient
 const projectData: Record<string, { image: string; gradient: string }> = {
   "App Pacientes": {
     image: "app-pacientes.webp",
-    gradient: "linear-gradient(135deg, #C4B5FD 0%, #E8E4F0 100%)", // violet/lavender
+    gradient: "linear-gradient(135deg, #E8E4F0 0%, #F5F3FF 100%)", // light lavender
   },
   "Design System Cuidafarma": {
     image: "design-system.webp",
@@ -14,15 +15,15 @@ const projectData: Record<string, { image: string; gradient: string }> = {
   },
   "Cuidafarma E-commerce": {
     image: "ecommerce.webp",
-    gradient: "linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%)", // violet
+    gradient: "linear-gradient(135deg, #E8E4F0 0%, #F5F3FF 100%)", // light lavender
   },
   "Cuida Delivery": {
     image: "cuida-delivery.webp",
-    gradient: "linear-gradient(135deg, #818CF8 0%, #C7D2FE 100%)", // indigo/light
+    gradient: "linear-gradient(135deg, #E8E4F0 0%, #F5F3FF 100%)", // light lavender
   },
   "Caso de estudio: Paw": {
     image: "paw.webp",
-    gradient: "linear-gradient(135deg, #FDA4AF 0%, #FECDD3 100%)", // rose/pink
+    gradient: "linear-gradient(135deg, #E8E4F0 0%, #F5F3FF 100%)", // light lavender
   },
 };
 ---
