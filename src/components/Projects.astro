@@ -75,7 +75,7 @@ const projectData: Record<string, { image: string; gradient: string }> = {
 
                     {project.link && (
                       <a
-                        href={project.internal ? `${import.meta.env.BASE_URL}${project.link}` : project.link}
+                        href={project.internal ? project.link : project.link}
                         target={project.internal ? undefined : "_blank"}
                         rel={project.internal ? undefined : "noopener noreferrer"}
                         class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white rounded-full font-medium transition-all duration-300 hover:bg-gray-800 hover:gap-3"
@@ -93,7 +93,7 @@ const projectData: Record<string, { image: string; gradient: string }> = {
                     {data?.image && (
                       <div class="relative">
                         <img
-                          src={`${import.meta.env.BASE_URL}/projects/${data.image}`}
+                          src={`/projects/${data.image}`}
                           alt={project.name}
                           class="w-full rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]"
                           loading="lazy"

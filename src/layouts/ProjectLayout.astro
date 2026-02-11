@@ -15,7 +15,7 @@ const { title, description, skills, year, images } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,7 +63,7 @@ const { title, description, skills, year, images } = Astro.props;
     <!-- Back navigation -->
     <nav style="position: sticky; top: 0; background: white; border-bottom: 1px solid #eee; z-index: 50;">
       <div class="container" style="display: flex; align-items: center; justify-content: space-between; height: 64px;">
-        <a href={`${import.meta.env.BASE_URL}/`} style="display: flex; align-items: center; gap: 8px; color: #666; text-decoration: none; font-size: 14px;">
+        <a href="/" style="display: flex; align-items: center; gap: 8px; color: #666; text-decoration: none; font-size: 14px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
@@ -97,7 +97,7 @@ const { title, description, skills, year, images } = Astro.props;
           {images.map((img, i) => (
             <figure style="margin: 0; cursor: zoom-in;" data-lightbox>
               <img 
-                src={`${import.meta.env.BASE_URL}${img}`}
+                src={img}
                 alt={`${title} - Imagen ${i + 1}`}
                 style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);"
                 loading={i === 0 ? "eager" : "lazy"}
